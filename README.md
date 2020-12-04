@@ -6,4 +6,6 @@ link to access website: https://oshop-9f6c9.web.app/
 - Firebase
 
 # Screenshots:
-
+![](ss1.png)
+![](ss2.png)
+![](ss3.png)
