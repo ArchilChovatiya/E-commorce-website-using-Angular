@@ -1,0 +1,23 @@
+<div  class="card" style="width: 100%;height: auto;">
+        <div [style.backgroundImage]="'url('+product.imageUrl+')'" class="image" ></div>
+            <div style="padding: 1vw 1.5vw;" class="card-body">
+                  <p style="font-size: 1.5vw;" class="card-title">{{product.title}}</p>
+                  <p  style="font-size: 1.2vw;" class="card-text">{{product.price|currency:'INR'}}</p>
+            </div>
+            <div style="padding: 0px 0px !important;" class="card-footer">
+                  <button style="font-size:1.2vw;"  *ngIf="quantity < 1;else newButton" (click)="addToCart()"  class="btn btn-primary btn-block">Add to cart</button>
+                        <ng-template #newButton >
+                              <div  class="row no-gutters">
+                                    <div style="max-width: 100%;" class="col-2 ">
+                                          <button style="font-size: 1vw"  (click)="removeFromCart()" class="btn btn-secondary btn-block">-</button>
+                                    </div>
+                                          <div style="font-size: 1.7vw;" class="col text-center">
+                                                 <span>{{ quantity}} in cart</span>
+                                          </div>
+                                    <div style="max-width: 100%;" class="col-2">
+                                          <button style="font-size: 1vw;" (click)="addToCart()" class="btn btn-secondary btn-block">+</button>
+                                    </div>
+                              </div>
+                  </ng-template>
+            </div>      
+</div>

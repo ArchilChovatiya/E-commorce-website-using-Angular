@@ -1,0 +1,12 @@
+.cols{
+    background: whitesmoke;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3vw;
+    padding-top: 20px;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}

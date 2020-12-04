@@ -1,0 +1,68 @@
+<div *ngIf="totalCartPrice>0" style="padding: 0% 10%;">
+    <div style="font-size: 1.5vw;" class="alert alert-success" role="alert">
+        We have successfully received the order of following items.
+    </div>
+    <div class="row">
+        <div class="col-6 cols">
+            <h2 style="font-size: 2.5vw;margin-left: 12px;" >Order Item</h2>
+          <table class="table borderless" style="margin-top: 2vw;">
+            <thead>
+                  <tr></tr>
+                  <tr></tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of products">
+                    <td  style="font-size: 1.3vw;padding: 0.3rem .75rem;">{{item.quantity}} x {{item.product.title}}</td>
+                    <td style="font-size: 1.3vw;padding: 0.3rem .75rem;" class="float-right">{{item.totalCost |currency:'INR'}}</td>
+                </tr>
+                  <tr>
+                      
+                      <td style="font-size: 1.3vw;padding: 0.3rem .75rem;" class="float-left"><b>Billing Amount: {{totalCartPrice |currency:'INR'}}</b></td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6 cols">
+            <h2 style="font-size: 2.5vw;margin-left: 12px;">User Infomation</h2>
+            <table class="table borderless">
+              <thead>
+                <tr></tr>
+              </thead>
+             <tbody>
+                <tr >
+                    <td  style="font-size: 1.3vw;padding: 0.3rem .75rem;"><b>Name:</b> {{UserInfo.name}}</td>
+                </tr>
+                  <tr>
+                      <td  style="font-size: 1.3vw;padding: 0.3rem .75rem;"><b>Email id:</b> {{UserInfo.email}}</td>
+                  </tr>
+             </tbody>
+            </table>
+    
+        </div>
+    </div>
+    <div style="padding-top:1vw ;"></div>
+    <div class="row">
+            <div class="col cols">
+                <h2 style="font-size: 2.5vw;;margin-left: 12px;">Shipping Details</h2>
+                    <table class="table borderless">
+                      <thead>
+                        <tr></tr>
+                      </thead>
+                     <tbody>
+                        <tr>
+                            <td style="font-size: 1.6vw;;padding: 0.3rem .75rem;" ><b>Name:</b> {{shipping.name}}</td>
+                        </tr>
+                          <tr>
+                            <td style="font-size: 1.6vw;;padding: 0.3rem .75rem;">
+                                <b>Shipping address: </b>  {{shipping.addressLine1}} , {{shipping.addressLine2}} , {{shipping.city}}
+                            </td>
+                          </tr>
+                     </tbody>
+                    </table>
+            </div>
+    </div>
+    
+    <button style="font-size: 2vw;;margin-top: 1vw;" [routerLink]="['/']" class="btn btn-primary">Continue shopping</button>
+    <div style="height: 2vw;"></div>
+</div>
+

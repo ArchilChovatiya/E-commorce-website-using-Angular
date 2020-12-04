@@ -1,0 +1,65 @@
+<h2>Shipping Details</h2>
+<div class="row">
+    <div class="col-6">
+  <form #f="ngForm">
+          <div class="form-group">
+            <label style="font-size: 1.7vw;" for="name">Name:</label>
+            <input style="padding: .0rem .75rem;font-size: 1.5vw;" #name="ngModel" id="name" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+            <div style="padding: .2rem .75rem;font-size: 1.2vw;" class="alert alert-danger" *ngIf="name.touched && name.invalid">
+              <div *ngIf="name.errors.required">Name is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 1.7vw;"  for="address">Address:</label>
+            <input style="padding: .0rem .75rem;font-size: 1.5vw;" id="address" #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.addressLine1" type="text" class="form-control" placeholder="Line 1" required>
+            <div style="padding: .2rem .75rem;font-size: 1.2vw;" class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+              <div  *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label style="font-size: 1.7vw;"  for="address2"></label>
+            <input style="padding: .0rem .75rem;font-size: 1.5vw;" id="address2" #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control" placeholder="Line 2" required>
+            <div style="padding: .2rem .75rem;font-size: 1.2vw;" class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
+              <div  *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 1.7vw;"  for="city">City:</label>
+            <input style="padding: .0rem .75rem;font-size: 1.5vw;" id="city" #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
+            <div style="padding: .2rem .75rem;font-size: 1.2vw;" class="alert alert-danger" *ngIf="city.touched && city.invalid">
+              <div *ngIf="city.errors.required">City is required.</div>
+            </div>
+          </div>
+          <button style="font-size: 1.5vw;" [disabled]="!f.valid"
+            (click)="placeOrder()"
+            class="btn btn-primary">Place Order</button>
+        </form>       
+    </div>
+    <div class="col-6" >
+        <div  class="cols">
+            <h2 style="font-size: 2vw;margin-top: 1vh;">Order Summary</h2>
+            <p style="font-size: 1.5vw;">You have total <span style="color: red;">{{totalQuantity}}</span> items in your cart.</p>
+          <table class="table table-light" style="margin-top: 2vw;">
+            <thead hidden>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr> 
+            </thead>
+            <tbody >
+              <tr  *ngFor="let itm of item;let i=index">
+                  <td style="font-size: 1.5vw;">{{itm.quantity}} x {{itm.title}} </td>
+                  <td style="font-size: 1.5vw;" class="float-right">{{totalPrice[i] |currency:'INR'}}</td>
+              </tr>
+              <tr>
+                  <td class="float-right" style="font-size: 1.5vw;"><b>Billing Amount: {{totalCartPrice |currency:'INR'}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div> 
+    
+</div>
+
+
+

@@ -1,0 +1,11 @@
+
+body{ 
+    background-image: linear-gradient(to right, #b977f4, #a868f3, #9659f3, #804af3, #643df3); 
+    background-attachment: fixed;
+    background-size:100vw 100vh;
+  }
+  .toast-top-right {
+    top: 8.5% !important;
+    right: 12px !important;
+    font-size: 2vh;
+}

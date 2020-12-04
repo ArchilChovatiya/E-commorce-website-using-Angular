@@ -1,0 +1,42 @@
+<h1>Shopping Cart</h1>
+<h5>You have <span style="color:blue;">{{count}}</span> items in your cart.</h5>
+
+<table class="table" *ngIf="count>0">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="text-left">Product</th>
+            <th style="widows: 50vw;" class="text-center" >Quantity</th>
+            <th  >Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let itm of item;let i=index">
+            <td>
+                <div class="thumbnail" [style.backgroundImage]="'url('+itm.imageUrl+')'"></div>
+            </td>
+            <td style="font-size: 2vw;" class="text-left">{{itm.title}}</td>
+            <td>
+                    <div style="width: 25vw;" class="row no-gutters">
+                            <div style="max-width: 100%;" class="col-1 ">
+                                  <button style="font-size: 1vw"  (click)="removeFromCart(itm.id)" class="btn btn-secondary btn-block">-</button>
+                            </div>
+                                  <div style="font-size: 1.5vw;" class="col text-center">
+                                         <span>{{ itm.quantity}} in cart</span>
+                                  </div>
+                            <div style="max-width: 100%;" class="col-1">
+                                  <button style="font-size: 1vw;" (click)="addToCart(itm)" class="btn btn-secondary btn-block">+</button>
+                            </div>
+                      </div>
+            </td>
+            
+            <td  style="font-size: 2vw;"  >{{totalprice[i]|currency:'INR'}}</td>
+        </tr>
+    </tbody>
+</table>
+<h4 *ngIf="count>0" style="font-size: 2.5vw;" class="text-right"> Billing amount: {{subTotal|currency:'INR'}}</h4>
+<button style="font-size: 1.5vw;" *ngIf="subTotal > 0" routerLink="/check-out" class="btn btn-primary">Check out</button>
+<button style="margin-left: 10px;font-size: 1.5vw;" *ngIf="subTotal > 0" (click)="clearCart()" class="btn btn-light">Clear Shopping Cart</button>
+<div style="height: 50px;">
+</div>
+

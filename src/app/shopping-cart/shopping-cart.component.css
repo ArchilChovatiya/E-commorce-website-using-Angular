@@ -1,0 +1,7 @@
+.thumbnail{
+    width: 12vw;
+    height: 12vw;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+}

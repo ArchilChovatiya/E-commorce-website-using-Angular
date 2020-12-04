@@ -1,0 +1,24 @@
+
+<p>
+    <a routerLink="/admin/products/new" class="btn btn-primary btn-lg btn-block">New Product</a>
+</p>
+<P>
+    <input #query (keyup)=filter(query.value) type="text" class="form-control" placeholder="Search products..." style="margin-top: 35px;">
+</P>  
+  
+<table class="table table-light" style="margin-top: 10px;">
+    <thead class="thead-light">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of flist">
+            <td>{{data.title}}</td>
+            <td>{{data.price | currency:'INR'}}</td>
+            <td><a [routerLink]="['/admin/products/',data.id]">Edit</a></td>          
+        </tr>
+    </tbody>
+</table>

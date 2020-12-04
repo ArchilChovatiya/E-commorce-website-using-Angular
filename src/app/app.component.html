@@ -1,0 +1,11 @@
+  <body>
+      <bs-nav *ngIf="cartId" ></bs-nav>
+      <div style="text-align: center;">
+          <div *ngIf="roter" style="margin-top: 20mm;" class="spinner-border text-dark" role="status"></div>
+      </div>
+      <div class="container" style="padding-top: 80px;">
+        <router-outlet *ngIf="cartId"></router-outlet>
+      </div>
+  </body>
+  
+

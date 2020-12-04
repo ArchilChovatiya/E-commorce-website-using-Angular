@@ -1,0 +1,11 @@
+.card-body{
+    background-image: linear-gradient(to right, #5bd2f9, #00e1f6, #00eee2, #00f7be, #6dfd8f);
+}
+
+.image{
+
+    width: 100%;
+    height: 20vw;
+    background-size: cover;
+    background-position: center;
+}

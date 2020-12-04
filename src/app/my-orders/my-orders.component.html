@@ -1,0 +1,45 @@
+
+  <div *ngIf="(data?.length===0)" style="padding-top:60px ;"></div>
+  <div *ngIf="(data?.length===0)"class="alert alert-danger" role="alert">
+      You have currently 0 orders.
+    </div>
+  <ul style="padding-left: 0px;">
+  <li class="list-group-item" *ngFor="let order of data">
+    <table class="table" *ngIf="data" >
+      <thead>
+        <tr style="font-size:1.8vw;">
+            <th ></th>
+            <th class="text-left">Product</th>
+            <th class="text-center" >Quantity</th>
+            <th class="text-right" >Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="padding: 0.2rem .75rem;" style="font-size:1.5vw;" *ngFor="let item of order.items">
+            <td >
+                <div class="thumbnail" [style.backgroundImage]="'url('+item.product.imageUrl+')'"></div>
+            </td>
+            <td>
+              {{item.product.title}}
+            </td>
+            <td class="text-center">
+                x{{item.quantity}}
+              </td>
+              <td class="text-right">
+                {{item.totalCost|currency:'INR'}}
+              </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th style="font-size:1.5vw;" class="text-right" >Billing Amount:{{order.totalCartPrice|currency:'INR'}}</th>
+      </tfoot>
+    </table> 
+   
+  </li>
+</ul>
+<div style="padding-top:1vw ;"></div>
+<button style="font-size:1vw;"  [routerLink]="['/']" class="btn btn-primary">Go to home page</button>
+<div style="height: 2vw;"></div>
